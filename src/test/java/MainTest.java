@@ -25,13 +25,16 @@ class MainTest {
         assertEquals(40, Main.users.get(0).getPoint());
         assertEquals(60, Main.users.get(1).getPoint());
 
+        Main.sendPoint(1, 2, 100);
+        assertEquals(40, Main.users.get(0).getPoint());
+        assertEquals(60, Main.users.get(1).getPoint());
+
     }
 
     @Test
     void transactionHistories() {
-        Main.sendPoint(2, 1, 20);
-        assertEquals(2,Main.transactionHistories.size());
-        assertEquals("Augi",Main.transactionHistories.get(1).getSender());
-        assertEquals("Adit",Main.transactionHistories.get(1).getReceiver());
+        assertEquals(1,Main.transactionHistories.size());
+        assertEquals("Adit",Main.transactionHistories.get(0).getSender());
+        assertEquals("Augi",Main.transactionHistories.get(0).getReceiver());
     }
 }
